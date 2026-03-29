@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahana Murugesh Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d1117;
+    color: #fff;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    color: #00b4d8;
+    font-size: 40px;
+}
+
+header p {
+    color: #ccc;
+}
+
+section {
+    padding: 25px 40px;
+}
+
+.card {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #00b4d8;
+}
+
+.contact button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #00b4d8;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+    <h1>Sahana Murugesh</h1>
+    <p>Computer Science Engineering</p>
+    <p>Coimbatore, India | sahanamurugeshp@gmail.com</p>
+</header>
+
+<section>
+    <h2>Professional Summary</h2>
+    <div class="card">
+        Motivated and detail-oriented first-year Computer Science Engineering student with a strong foundation in programming, problem-solving, and AI/ML concepts. Experienced in building real-world projects including healthcare AI agents, sentiment analysis systems, and intelligent automation tools. Skilled in Python, LangChain, RAG systems, and web technologies. Actively engaged in internships, hackathons, and certifications to continuously enhance technical and analytical skills. Passionate about developing scalable AI-driven solutions that solve real-world problems efficiently.
+    </div>
+</section>
+
+<section>
+    <h2>Technical Skills</h2>
+    <div class="card">
+        <b>Programming:</b> Python, Java, JavaScript, HTML, CSS <br><br>
+        <b>AI & Machine Learning:</b> LangChain, RAG Systems, Prompt Engineering, Google Gemini API, Sentiment Analysis <br><br>
+        <b>Tools & Platforms:</b> GitHub, VS Code, Jupyter Notebook, Google Colab, Replit, n8n <br><br>
+        <b>Database:</b> SQL Fundamentals <br><br>
+        <b>Productivity:</b> MS Excel (charts, formulas) <br><br>
+        <b>Soft Skills:</b> Problem-Solving, Communication, Team Collaboration, Time Management, Adaptability
+    </div>
+</section>
+
+<section>
+    <h2>Education</h2>
+    <div class="card">
+        B.E Computer Science Engineering (2025–2029)<br>
+        SNS College of Technology, Coimbatore
+    </div>
+</section>
+
+<section>
+    <h2>Projects</h2>
+
+    <div class="card">
+        <b>Hippocratic AI (Ongoing)</b><br>
+        Healthcare AI agent with reminders, alerts, and safety-first design
+    </div>
+
+    <div class="card">
+        <b>Video Summarization Tool (Ongoing)</b><br>
+        Extracts key insights from videos using AI
+    </div>
+
+    <div class="card">
+        <b>Supply Chain Platform</b><br>
+        AI-powered inventory and analytics system
+    </div>
+
+    <div class="card">
+        <b>Sentiment Analysis Models</b><br>
+        Compared BERT, LSTM, GRU models
+    </div>
+
+    <div class="card">
+        <b>Campus Event System</b><br>
+        Hackathon project with AI features
+    </div>
+
+</section>
+
+<section>
+    <h2>Certifications</h2>
+    <div class="card">
+        • RAG Systems – Analytics Vidhya (Pinnacle 2.0) <br>
+        • LangChain for AI Applications – Analytics Vidhya <br>
+        • Prompt Engineering – Analytics Vidhya <br>
+        • Coding Essentials for Agents – Analytics Vidhya <br>
+        • Prompting & LLM Fundamentals – Analytics Vidhya <br>
+        • Artificial Intelligence Fundamentals – IBM <br>
+        • AI/BI for Data Analysts – Databricks Academy <br>
+        • Python Programming Internship – CodSoft (Completed)
+    </div>
+</section>
+
+<section>
+    <h2>Languages</h2>
+    <div class="card">
+        English | Tamil | Kannada | Telugu
+    </div>
+</section>
+
+<section class="contact">
+    <h2>Contact</h2>
+    <button onclick="window.location.href='mailto:sahanamurugeshp@gmail.com'">Email</button>
+    <button onclick="window.open('https://github.com/sahanamurugeshp-spec')">GitHub</button>
+    <button onclick="window.open('https://www.linkedin.com/in/sahana-murugesh')">LinkedIn</button>
+</section>
+
+<script>
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let dots = [];
+
+for (let i = 0; i < 80; i++) {
+    dots.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: 2,
+        dx: Math.random() - 0.5,
+        dy: Math.random() - 0.5
+    });
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    dots.forEach(dot => {
+        dot.x += dot.dx;
+        dot.y += dot.dy;
+
+        if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+        if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+        ctx.fillStyle = "#00b4d8";
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
